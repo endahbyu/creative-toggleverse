@@ -12,24 +12,32 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check for stored theme preference or system preference
-    const storedTheme = localStorage.getItem("theme") as Theme | null;
-    if (storedTheme) return storedTheme;
-    
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
+    // Check localStorage first, but handle SSR case
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem("theme") as Theme | null;
+      if (storedTheme === 'dark' || storedTheme === 'light') {
+        return storedTheme;
+      }
+      
+      // If no stored theme, check system preference
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
     }
     
+    // Default to light if no preference found
     return "light";
   });
 
   useEffect(() => {
-    // Update class on html element when theme changes
+    if (typeof window === 'undefined') return;
+    
+    // Update class on document element when theme changes
     const root = window.document.documentElement;
     root.classList.remove("dark", "light");
     root.classList.add(theme);
     
-    // Store theme preference
+    // Store theme preference in localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
 
