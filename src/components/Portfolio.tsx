@@ -81,7 +81,7 @@ export default function Portfolio() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title text-gradient-yellow">My Portfolio</h2>
+          <h2 className="section-title">My Portfolio</h2>
           <p className="section-subtitle">
             A showcase of my latest work and projects across web development and
             graphic design. Each project is crafted with attention to detail and a
@@ -98,7 +98,7 @@ export default function Portfolio() {
         >
           {projects.map((project) => (
             <motion.div key={project.id} variants={item}>
-              <div className="card-3d h-full">
+              <Card className="overflow-hidden card-hover h-full glass">
                 <div className="aspect-video relative overflow-hidden">
                   <img
                     src={project.image}
@@ -106,25 +106,25 @@ export default function Portfolio() {
                     className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/30 backdrop-blur-sm border border-primary/20 text-primary-foreground">
+                    <span className="px-3 py-1 text-xs font-medium rounded-full glass">
                       {project.category}
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
+                <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-xl font-semibold">{project.title}</h3>
-                    <project.icon className="w-5 h-5 text-gradient-yellow" />
+                    <project.icon className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <a
                     href="#"
-                    className="inline-flex items-center text-gradient-yellow hover:underline"
+                    className="inline-flex items-center text-primary hover:underline"
                   >
                     View Project <ArrowUpRight className="ml-1 w-4 h-4" />
                   </a>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </motion.div>

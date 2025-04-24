@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -52,7 +51,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title text-gradient-yellow">Get in Touch</h2>
+          <h2 className="section-title">Get in Touch</h2>
           <p className="section-subtitle">
             Have a project in mind or want to discuss how I can help your business?
             Feel free to reach out through the form below or via email/phone.
@@ -66,69 +65,67 @@ export default function Contact() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <div className="card-3d p-6">
-              <h3 className="text-2xl font-bold mb-6 text-gradient-yellow">Send Me a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formState.name}
-                    onChange={handleChange}
-                    required
-                    className="bg-gradient-jet border-[1px] border-[hsla(0,0%,25%,0.3)]"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formState.email}
-                    onChange={handleChange}
-                    required
-                    className="bg-gradient-jet border-[1px] border-[hsla(0,0%,25%,0.3)]"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formState.subject}
-                    onChange={handleChange}
-                    required
-                    className="bg-gradient-jet border-[1px] border-[hsla(0,0%,25%,0.3)]"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message"
-                    value={formState.message}
-                    onChange={handleChange}
-                    required
-                    className="bg-gradient-jet border-[1px] border-[hsla(0,0%,25%,0.3)] min-h-[150px]"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-onyx hover:bg-gradient-yellow-1 transition-all duration-300"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center">
-                      Sending... <Check className="ml-2 h-4 w-4 animate-spin" />
-                    </span>
-                  ) : (
-                    <span className="flex items-center">
-                      Send Message <Send className="ml-2 h-4 w-4" />
-                    </span>
-                  )}
-                </Button>
-              </form>
-            </div>
+            <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formState.name}
+                  onChange={handleChange}
+                  required
+                  className="bg-background/50"
+                />
+              </div>
+              <div>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-background/50"
+                />
+              </div>
+              <div>
+                <Input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formState.subject}
+                  onChange={handleChange}
+                  required
+                  className="bg-background/50"
+                />
+              </div>
+              <div>
+                <Textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formState.message}
+                  onChange={handleChange}
+                  required
+                  className="bg-background/50 min-h-[150px]"
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center">
+                    Sending... <Check className="ml-2 h-4 w-4 animate-spin" />
+                  </span>
+                ) : (
+                  <span className="flex items-center">
+                    Send Message <Send className="ml-2 h-4 w-4" />
+                  </span>
+                )}
+              </Button>
+            </form>
           </motion.div>
 
           <motion.div
@@ -138,12 +135,12 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="flex flex-col justify-between"
           >
-            <div className="card-3d p-6 mb-8">
-              <h3 className="text-2xl font-bold mb-6 text-gradient-yellow">Contact Information</h3>
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 p-3 rounded-full bg-primary/10">
-                    <Mail className="h-6 w-6 text-gradient-yellow" />
+                    <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold">Email</h4>
@@ -152,7 +149,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 p-3 rounded-full bg-primary/10">
-                    <Phone className="h-6 w-6 text-gradient-yellow" />
+                    <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold">Phone</h4>
@@ -161,7 +158,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 p-3 rounded-full bg-primary/10">
-                    <MapPin className="h-6 w-6 text-gradient-yellow" />
+                    <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold">Location</h4>
@@ -171,13 +168,13 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="card-3d p-6">
-              <h4 className="text-lg font-semibold mb-4 text-gradient-yellow">Let's Work Together</h4>
+            <div className="mt-12 p-6 rounded-xl glass">
+              <h4 className="text-lg font-semibold mb-4">Let's Work Together</h4>
               <p className="text-muted-foreground mb-4">
                 I'm currently available for freelance work and long-term collaborations.
                 If you have a project that needs attention, let's discuss how I can help!
               </p>
-              <Button variant="outline" className="w-full border-[1px] border-[hsla(0,0%,25%,0.3)] bg-gradient-jet hover:bg-gradient-yellow-2" asChild>
+              <Button variant="outline" className="w-full" asChild>
                 <a href="mailto:hello@yourportfolio.com">
                   <Mail className="mr-2 h-4 w-4" /> Email Me Directly
                 </a>
